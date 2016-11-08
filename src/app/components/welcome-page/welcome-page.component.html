@@ -1,0 +1,14 @@
+<p>
+  welcome-page works!
+</p>
+
+<button (click)="mock_login()">Login some user</button>
+
+<div *ngIf="globalStatistics">
+  <h2>Global statistics</h2>
+  <h3>users: {{globalStatistics.total_users}}</h3>
+  <h3>Trips: {{globalStatistics.total_contributions}}</h3>
+  <h3>Durations: {{globalStatistics.total_duration}} seconds</h3>
+  <h3>Distance: {{globalStatistics.total_distance}} meters</h3>
+</div>
+

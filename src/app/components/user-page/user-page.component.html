@@ -1,0 +1,26 @@
+<p>
+  user-page works!
+</p>
+
+<div *ngIf="userInfo">
+  <h2>User Info</h2>
+  <h3>user_id: {{userInfo.user_id}}</h3>
+  <h3>device_id: {{userInfo.device_id}}</h3>
+</div>
+
+<h2>Contributions List</h2>
+<ul>
+  <li *ngFor="let contribution of userContributions"><button (click)="getContributionDetails(contribution.contribution_id)">More</button>   {{contribution.started_at}}</li>
+</ul>
+
+<div *ngIf="selectedContribution">
+  <h2>Contribution Details</h2>
+  <ul>
+    <li><h3>Started at {{selectedContribution.started_at}}</h3></li>
+    <li><h3>Duration {{selectedContribution.duration}}</h3></li>
+    <li><h3>Distance {{selectedContribution.distance}}</h3></li>
+  </ul>
+</div>
+
+
+

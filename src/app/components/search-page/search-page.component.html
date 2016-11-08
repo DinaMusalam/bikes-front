@@ -1,0 +1,57 @@
+<p>
+  search-page works!
+</p>
+
+<div>
+  <button (click)="testMalmo()">Test Malmo</button>
+</div>
+
+
+<select [(ngModel)]="selectedCountryId" (change)="getCities($event.target.value)">
+  <option *ngFor="let country of countries" [value]="country.geonameid">{{country.country}}</option>
+</select>
+<h2>Cities</h2>
+<select  (change)="getCity($event.target.value)">
+  <option *ngFor="let city of cities" [value]="city.geonameid">{{city.name}}</option>
+</select>
+
+<h2>Start Date</h2>
+<input type="date" [(ngModel)]="timeStarted">
+
+<h2>End Date</h2>
+<input type="date" [(ngModel)]="timesEnded">
+
+<h2>Resolution</h2>
+<select  (change)="setTimeResolution($event.target.value)">
+  <option *ngFor="let item of timeResolutionList" [value]="item">{{item}}</option>
+</select>
+
+<button (click)="getData()">Get Data</button>
+
+<button (click)="savePDF()">Save mock pdf</button>
+<div #my_report>
+  <div *ngIf="reportData">
+    <button (click)="showTable=true">Table</button>
+    <button (click)="showTable=false">Chart</button>
+    <div style="width: 100%;height: 400px;">
+      <div [hidden]="!showTable" >
+        <button (click)="saveCsvFile(reportData)">Download</button>Save as csv file.
+        <button (click)="saveTableAsPDF()">pdf</button>
+
+        <report-table  [data]="reportData" [columns]="reportDataColumns"></report-table>
+      </div>
+      <div [hidden]="showTable">
+        <report-chart  [data]="reportData"></report-chart>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
