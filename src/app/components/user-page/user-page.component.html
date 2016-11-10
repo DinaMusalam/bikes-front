@@ -1,72 +1,75 @@
+<my-navbar [user]="userInfo2"></my-navbar>
 <div class="user-page-container">
-  <my-navbar></my-navbar>
+
   
   <div class="user-item">
-    <div >
-      <div class="row">
-        <div class="avatar col-md-6">
-          <div class="row">
-            <div class="col-md-3 ">
-              <img src="../../../assets/cat.png" width="120" height="120" alt="">
-            </div>
-            <div class="col-md-6 ">
-              <h3>John Mc.Power</h3>
-              <h5>John@domain.com</h5>
-            </div>
+    <div class="row">
+      <div class="avatar col-md-6">
+        <div class="row">
+          <div class="col-md-4 ">
+            <img [src]="userInfo2.avatar" width="120" height="120" alt="">
           </div>
+          <div class="col-md-6 ">
+            <h3>{{userInfo2.fullName}}</h3>
+            <h5>{{userInfo2.email}}</h5>
+          </div>
+        </div>
+        <div class="row padding-vertical">
+          <p style="margin: 15px 0;padding-left: 15px;">{{userInfo2.bio}}</p>
+        </div>
 
-        </div>
-        <div class="avatar col-md-6 user-rank" *ngIf="userRank">
-          <i class="glyphicon glyphicon-tower"></i>
-          <h2>{{userRank.rank+'/'+userRank.total}}</h2>
-        </div>
+      </div>
+      <div class="avatar col-md-6 user-rank" *ngIf="userRank">
+        <i class="glyphicon glyphicon-tower"></i>
+        <h2>{{userRank.rank+'/'+userRank.total}}</h2>
       </div>
     </div>
-
-
-    <div class="user-info">
-
-      <div class="row">
-        <div class="col-md-4">
-          <ul class="list-group">
-            <li class="list-group-item">Age <span class="badge">{{userInfo2.age}} years</span></li>
-            <li class="list-group-item">Sex <span class="badge">{{userInfo2.sex}}</span></li>
-            <li class="list-group-item">Height <span class="badge">{{userInfo2.height}} cm</span></li>
-            <li class="list-group-item">Weight <span class="badge">{{userInfo2.weight}} kg</span></li>
-          </ul>
-        </div>
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-          <ul class="list-group" *ngIf="userStatistics">
-            <li class="list-group-item">Total Distance <span class="badge primary">{{optimizeDistance(userStatistics.total_distance)}}</span></li>
-            <li class="list-group-item">Average Distance Per Trip <span class="badge primary">{{optimizeDistance(userStatistics.avg_distance)}}</span></li>
-            <li class="list-group-item">Total Trips <span class="badge primary">{{userStatistics.total_trips}}</span></li>
-            <li class="list-group-item">Total Duration <span class="badge primary">{{humanizeDuration(userStatistics.total_duration)}}</span></li>
-            <li class="list-group-item">Average Duration Per Trip <span class="badge primary">{{humanizeDuration(userStatistics.avg_duration)}}</span></li>
-          </ul>
-        </div>
+    <div class="row">
+      <div class="col-md-6">
+        <ul class="list-group" *ngIf="userStatistics">
+          <li class="list-group-item">Age <span class="badge">{{userInfo2.age}} years</span></li>
+          <li class="list-group-item">Sex <span class="badge">{{userInfo2.sex}}</span></li>
+          <li class="list-group-item">Height <span class="badge">{{userInfo2.height}} cm</span></li>
+          <li class="list-group-item">Weight <span class="badge">{{userInfo2.weight}} kg</span></li>
+          <li class="list-group-item">Total Distance <span class="badge primary">{{optimizeDistance(userStatistics.total_distance)}}</span></li>
+          <li class="list-group-item">Average Distance Per Trip <span class="badge primary">{{optimizeDistance(userStatistics.avg_distance)}}</span></li>
+          <li class="list-group-item">Total Trips <span class="badge primary">{{userStatistics.total_trips}}</span></li>
+          <li class="list-group-item">Total Duration <span class="badge primary">{{humanizeDuration(userStatistics.total_duration)}}</span></li>
+          <li class="list-group-item">Average Duration Per Trip <span class="badge primary">{{humanizeDuration(userStatistics.avg_duration)}}</span></li>
+        </ul>
       </div>
-
+      <div class="col-md-6">
+        <img src="../../../assets/mock_map_route.jpg" height="365"  alt="">
+      </div>
     </div>
-
   </div>
 
-  <h3 class = "text-success">Contributions List</h3>
-  <ul class="list-group">
-    <li *ngFor="let contribution of userContributions" class="list-group-item"><a role="button" (click)="getContributionDetails(contribution.contribution_id)"> {{dateFormat(contribution.started_at)}} </a>
-    </li>
-  </ul>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class = "text-success">Recent Trips</h3>
+      <ul class="list-group">
+        <li *ngFor="let contribution of userContributions|slice:0:10" class="list-group-item"><a role="button" (click)="getContributionDetails(contribution.contribution_id)"> {{dateFormat(contribution.started_at)}} </a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="selectedContribution">
+        <h3 class = "text-success">Trip Details</h3>
+        <ul class="list-group">
+          <li class="list-group-item"><h5>Started at {{dateFormat(selectedContribution.started_at)}}</h5></li>
+          <li class="list-group-item"><h5>Duration {{humanizeDuration(selectedContribution.duration)}}</h5></li>
+          <li class="list-group-item"><h5>Distance {{optimizeDistance(selectedContribution.distance)}}</h5></li>
+          <li class="list-group-item"><h5>CO2 saved {{toCO2(selectedContribution.distance)}}g</h5></li>
 
-  <div *ngIf="selectedContribution">
-    <h3 class = "text-success">Contribution Details</h3>
-    <ul class="list-group">
-      <li class="list-group-item"><h5>Started at {{dateFormat(selectedContribution.started_at)}}</h5></li>
-      <li class="list-group-item"><h5>Duration {{humanizeDuration(selectedContribution.duration)}}</h5></li>
-      <li class="list-group-item"><h5>Distance {{optimizeDistance(selectedContribution.distance)}}</h5></li>
-      <li class="list-group-item"><h5>CO2 saved {{toCO2(selectedContribution.distance)}}g</h5></li>
 
-    </ul>
+        </ul>
+
+      </div>
+    </div>
   </div>
+
+
+
 
 </div>
 

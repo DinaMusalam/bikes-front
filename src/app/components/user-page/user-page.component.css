@@ -1,8 +1,10 @@
 .user-page-container{
     /*background: url('../../../assets/Background.jpg') no-repeat ;*/
-    background-color: #ffffff;
+    background-color: #fcfcfc;
     /*background-size: cover;*/
     min-height: 768px;
+    width: 60%;
+    margin: auto;
     padding: 1%;
 }
 
