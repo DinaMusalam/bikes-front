@@ -14,8 +14,16 @@ export class UserPageComponent implements OnInit {
 
   id;
   userInfo;
+  userRank:{rank:number;total:number};
   userContributions:any[];
+  userStatistics;
   selectedContribution;
+  userInfo2={
+    height:182,
+    weight:90,
+    age:32,
+    sex:'male'
+  };
 
   constructor(private route:ActivatedRoute,private userService:UserService,private tripService:TripService,private conversionService:ConversionService) { }
 
@@ -25,7 +33,7 @@ export class UserPageComponent implements OnInit {
       this.userService.getUserInfo(this.id).subscribe(data=>{
         console.log('user info',data);
         this.userInfo = data;
-        this.getUserContributions();
+        this.getUserStatistics();
       },error=>console.log('error in user info',error));
 
     });
@@ -35,6 +43,21 @@ export class UserPageComponent implements OnInit {
     this.userService.getUserContributions(this.id).subscribe(data=>{
       this.userContributions = data;
     },error=>console.log('error in user info',error));
+  }
+
+  private getUserStatistics(){
+    this.userService.getUserStatistics(this.id).subscribe(data=>{
+      this.userStatistics = data;
+      //todo use observable chain instead.
+      this.getUserRank();
+      this.getUserContributions();
+    },error=>console.log('error in user Statisitics',error));
+  }
+
+  private getUserRank(){
+    this.userService.getUserRank(this.id).subscribe(data=>{
+      this.userRank = data;
+    },error=>console.log('error in user Rank',error));
   }
 
   getContributionDetails(conId){
@@ -61,8 +84,9 @@ export class UserPageComponent implements OnInit {
   {
     return this.conversionService.format(date,"DD-MMM-YYYY   HH:mm");
   }
-  humanizeDuration(duration:number)
+  humanizeDuration(_duration:number)
   {
-    return this.conversionService.humanizeDuration(duration);
+    let duration =  this.conversionService.humanizeDuration(_duration);
+    return duration.value +' '+ duration.unit;
   }
 }

@@ -1,8 +1,25 @@
-ul{
-    height: 200px;
-    overflow-y: scroll;
-    width: 400px;
+.user-page-container{
+    /*background: url('../../../assets/Background.jpg') no-repeat ;*/
+    background-color: #ffffff;
+    /*background-size: cover;*/
+    min-height: 768px;
+    padding: 1%;
 }
-ul li{
-    height:40px ;
+
+.user-info-panel{
+    width: 25%;
+}
+.primary{
+    background-color: #00BB44;
+}
+
+.half-width{
+    width: 50%;
+}
+.user-rank{
+    text-align: center;
+}
+.user-rank i{
+   font-size: 72px;
+    color: orange;
 }
