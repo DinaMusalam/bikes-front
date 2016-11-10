@@ -20,6 +20,8 @@ import { UserPageComponent } from './components/user-page/user-page.component';
 import {UserService} from "../services/user.service";
 import {TripService} from "../services/trip.service";
 import { Chart2Component } from './components/chart2/chart2.component';
+import {ConversionService} from '../services/conversion.service';
+
 
 @NgModule({
   declarations: [
@@ -46,7 +48,8 @@ import { Chart2Component } from './components/chart2/chart2.component';
     Service,
     PDFService,
     UserService,
-    TripService
+    TripService,
+    ConversionService
   ],
   bootstrap: [AppComponent]
 })
