@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Params} from "@angular/router";
 import {UserService} from "../../../services/user.service";
 import {TripService} from "../../../services/trip.service";
+import {ConversionService} from "../../../services/conversion.service" ;
+
 
 @Component({
   selector: 'app-user-page',
@@ -15,7 +17,7 @@ export class UserPageComponent implements OnInit {
   userContributions:any[];
   selectedContribution;
 
-  constructor(private route:ActivatedRoute,private userService:UserService,private tripService:TripService) { }
+  constructor(private route:ActivatedRoute,private userService:UserService,private tripService:TripService,private conversionService:ConversionService) { }
 
   ngOnInit() {
     this.route.params.subscribe((params:Params)=>{
@@ -41,4 +43,26 @@ export class UserPageComponent implements OnInit {
     },error=>console.log('error in trip info',error));
   }
 
+  toKM(num_value:number)
+  {
+    return this.conversionService.toKM(num_value);
+  }
+  toCO2(num_value:number)
+  {
+    return this.conversionService.toCO2(num_value);
+  }
+
+  optimizeDistance(distance:number)
+  {
+    let ret = this.conversionService.optimizeDistance(distance);
+    return ret.distance + " " + ret.unit;
+  }
+  dateFormat(date:string)
+  {
+    return this.conversionService.format(date,"DD-MMM-YYYY   HH:mm");
+  }
+  humanizeDuration(duration:number)
+  {
+    return this.conversionService.humanizeDuration(duration);
+  }
 }

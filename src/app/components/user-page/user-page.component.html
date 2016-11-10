@@ -1,24 +1,24 @@
-<p>
-  user-page works!
-</p>
 
 <div *ngIf="userInfo">
-  <h2>User Info</h2>
-  <h3>user_id: {{userInfo.user_id}}</h3>
-  <h3>device_id: {{userInfo.device_id}}</h3>
+  <h3 class = "text-success">User Info</h3>
+  <h4>user_id: {{userInfo.user_id}}</h4>
+  <h4>device_id: {{userInfo.device_id}}</h4>
 </div>
 
-<h2>Contributions List</h2>
-<ul>
-  <li *ngFor="let contribution of userContributions"><button (click)="getContributionDetails(contribution.contribution_id)">More</button>   {{contribution.started_at}}</li>
+<h3 class = "text-success">Contributions List</h3>
+<ul class="list-group">
+  <li *ngFor="let contribution of userContributions" class="list-group-item"><a role="button" (click)="getContributionDetails(contribution.contribution_id)"> {{dateFormat(contribution.started_at)}} </a>   
+  </li>
 </ul>
 
 <div *ngIf="selectedContribution">
-  <h2>Contribution Details</h2>
-  <ul>
-    <li><h3>Started at {{selectedContribution.started_at}}</h3></li>
-    <li><h3>Duration {{selectedContribution.duration}}</h3></li>
-    <li><h3>Distance {{selectedContribution.distance}}</h3></li>
+  <h3 class = "text-success">Contribution Details</h3>
+  <ul class="list-group">
+    <li class="list-group-item"><h5>Started at {{dateFormat(selectedContribution.started_at)}}</h5></li>
+    <li class="list-group-item"><h5>Duration {{humanizeDuration(selectedContribution.duration)}}</h5></li>
+    <li class="list-group-item"><h5>Distance {{optimizeDistance(selectedContribution.distance)}}</h5></li>
+    <li class="list-group-item"><h5>CO2 saved {{toCO2(selectedContribution.distance)}}g</h5></li>
+    
   </ul>
 </div>
 
