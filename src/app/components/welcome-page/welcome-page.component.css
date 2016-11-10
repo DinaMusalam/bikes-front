@@ -1,4 +1,48 @@
-.login-div{
-
+.welcome-container{
+    /*background: url('../../../assets/Background.jpg') no-repeat ;*/
+    background-color: #313131;
+    /*background-size: cover;*/
+    min-height: 768px;
+}
+.intro{
+    position: relative;
+    color: rgba(255, 255, 255, 0.66);
+    width: 45%;
+    margin: auto;
+    padding-top: 7%;
+}
+.intro h1{
+    font-size: 82px;
+    color: #00BB44;
     text-align: center;
 }
+.login-div{
+
+    position: relative;
+    text-align: center;
+    padding-top: 5%;
+}
+.login-div button{
+    margin: 0 20px;
+    box-shadow: 0 3px 10px #1d1d1d;
+}
+
+.global-statistics{
+    text-align: center;
+    padding: 5% 0;
+}
+
+.global-statistics h3{
+    font-size: 44px;
+}
+.global-statistics i{
+    font-size: 48px;
+    color: #00BB44;
+}
+.global-statistics .col-md-3{
+    padding: 0;
+}
+.global-statistics .thumbnail{
+    min-height: 200px;
+}
+
