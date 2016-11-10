@@ -30,4 +30,9 @@ export class WelcomePageComponent implements OnInit {
     this.router.navigate(['/user',this.mockUserId]);
   }
 
+  mock_login_public(){
+    this.router.navigate(['/search']);
+  }
+
+
 }

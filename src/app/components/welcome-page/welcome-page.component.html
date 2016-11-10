@@ -1,16 +1,16 @@
-<p>
-  welcome-page works!
-</p>
+<div class="welcome-container">
+  <div class="login-div">
+    <button (click)="mock_login()" class="btn ntn-block btn-success btn-lg">User Login</button>
+    <button (click)="mock_login_public()" class="btn ntn-block btn-success btn-lg">Public Login</button>
+  </div>
 
+  <div *ngIf="globalStatistics">
+    <h2>Global statistics</h2>
+    <h3>users: {{globalStatistics.total_users}}</h3>
+    <h3>Trips: {{globalStatistics.total_contributions}}</h3>
+    <h3>Durations: {{globalStatistics.total_duration}} seconds</h3>
+    <h3>Distance: {{globalStatistics.total_distance}} meters</h3>
+  </div>
 
-
-<button (click)="mock_login()">Login some user</button>
-
-<div *ngIf="globalStatistics">
-  <h2>Global statistics</h2>
-  <h3>users: {{globalStatistics.total_users}}</h3>
-  <h3>Trips: {{globalStatistics.total_contributions}}</h3>
-  <h3>Durations: {{globalStatistics.total_duration}} seconds</h3>
-  <h3>Distance: {{globalStatistics.total_distance}} meters</h3>
 </div>
 
