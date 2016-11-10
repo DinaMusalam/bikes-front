@@ -13,7 +13,7 @@ export class TableComponent implements OnInit {
 
     constructor() { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
 }

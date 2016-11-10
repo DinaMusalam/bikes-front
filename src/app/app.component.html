@@ -1,4 +1,152 @@
 <a routerLink="/home" routerLinkActive="true">Home</a>
 <a routerLink="/search" routerLinkActive="true">Search</a>
 
-<router-outlet></router-outlet>
+<div id="pageHeader">
+    <nav class="navbar navbar-default">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <img id="logo" src="../assets/logo.png">
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><p class="navbar-text">Already have an account?</p></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+                    <ul id="login-dp" class="dropdown-menu">
+                        <li>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    Login via
+                                    <div class="social-buttons">
+                                        <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+                                        <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
+                                    </div>
+                                    or
+                                    <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                                            <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="sr-only" for="exampleInputPassword2">Password</label>
+                                            <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+                                            <div class="help-block text-right"><a href="">Forget the password ?</a></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox"> keep me logged-in
+                                            </label>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="bottom text-center">
+                                    New here ? <a href="#"><b>Join Us</b></a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    </nav><!-- /.navbar-collapse -->
+</div><!-- /pageHeader -->
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
+
+
+<footer class="text-muted well" id="last-footer">
+    <section>
+        <div class="row" style="font-size:11px;">
+            <div class="container">
+                <h3 class="subhead" style="text-align:center;">All We Need Is Your Love</h3>
+                <div class="col-md-9">
+                    <div class="row" >
+                        <div class="col-md-3">
+                            <div class="row footlinks">
+                                <div class="col-xs-12">
+                                    <h5>About School</h5>
+                                    <ul class="noBullets">
+                                        <li><i class="fa fa-angle-right"></i><a href="#">History</a></li>
+                                        <li><i class="fa fa-angle-right"></i><a href="#">Location</a></li>
+                                        <li><i class="fa fa-angle-right"></i><a href="#">Faculty</a></li>
+                                        <li><i class="fa fa-angle-right"></i><a href="#">Architecture</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row footlinks">
+                                <div class="col-xs-12">
+                                    <h5>Join Us</h5>
+                                    <ul class="noBullets">
+                                        <li><i class="fa fa-angle-right"></i><a href="#">Facbook Page</a></li>
+                                        <li><i class="fa fa-angle-right"></i><a href="#">Follow Twitter</a></li>
+                                        <li><i class="fa fa-angle-right"></i><a href="#">Google Plus</a></li>
+                                        <li><i class="fa fa-angle-right"></i><a href="#">E-Mail</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row footlinks">
+                                <div class="col-xs-12">
+                                    <h5>Facilities</h5>
+                                    <ul class="noBullets">
+                                        <li><i class="fa fa-angle-right"></i><a href="#">Transport Facility</a></li>
+                                        <li><i class="fa fa-angle-right"></i><a href="#">AC Classrooms</a></li>
+                                        <li><i class="fa fa-angle-right"></i><a href="#">Monthly Trips</a></li>
+                                        <li><i class="fa fa-angle-right"></i><a href="#">Computer Lab</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row footlinks">
+                                <div class="col-xs-12">
+                                    <h5>Access Links</h5>
+                                    <ul class="noBullets">
+                                        <li><i class="fa fa-angle-right"></i><a href="#">Future Plans</a></li>
+                                        <li><i class="fa fa-angle-right"></i><a href="#">Objectives</a></li>
+                                        <li><i class="fa fa-angle-right"></i><a href="#">Achievements</a></li>
+                                        <li><i class="fa fa-angle-right"></i><a href="#">Honours</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                    </div><!--/.row inner-->
+                </div>
+                <div class="col-md-3 subscribe">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <form class="form-inline" role="form">
+                                <ul class="noBullets">
+                                    <h5>Subscribe Newsletters!</h5>
+                                    <li>
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter your email address">
+                                        </div>
+                                    </li>
+                                    <li class="text-center">
+                                        <button type="submit" class="btn btn-success btn-sm">Subscribe Now!</button>
+                                    </li>
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="container text-center">
+                    <h5>All Rights Reserved © 2014.<a href="mailto:chance2seo@gmail.com">Passionate Rahul</a></h5>
+                </div>
+             </div>
+        </div><!--/.row outer-->
+    </section>
+</footer>

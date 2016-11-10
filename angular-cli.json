@@ -24,7 +24,13 @@
         "../node_modules/amcharts/dist/amcharts/amcharts.js",
         "../node_modules/amcharts/dist/amcharts/serial.js",
         "../node_modules/amcharts/dist/amcharts/plugins/export/export.min.js",
-        "../node_modules/amcharts/dist/amcharts/themes/light.js"
+        "../node_modules/amcharts/dist/amcharts/themes/light.js",
+        "../node_modules/amcharts/dist/amcharts/plugins/export/libs/fabric.js/fabric.min.js",
+        "../node_modules/amcharts/dist/amcharts/plugins/export/libs/FileSaver.js/FileSaver.min.js",
+        "../node_modules/amcharts/dist/amcharts/plugins/export/libs/pdfmake/pdfmake.min.js",
+        "../node_modules/amcharts/dist/amcharts/plugins/export/libs/jszip/jszip.min.js"
+
+
 
       ],
       "environments": {

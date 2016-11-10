@@ -1,0 +1,56 @@
+.navbar-default .navbar-collapse, .navbar-default .navbar-form{
+	background:#f5f5f5;
+	
+}
+.navbar-default{
+	margin:0px;
+}
+.navbar{
+	border:0px;
+}
+
+.dropdown, .dropup {
+	padding-right: 5px;
+}
+
+.btn-groups, .btn-group-vertical {
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+}
+
+.col-md-4 {
+    width: 100%;
+}
+
+#logo {
+    height: auto; 
+    width: auto; 
+    max-width: 16%; 
+}
+
+#container{
+	width: 95%;
+    margin: auto;
+	padding-top: 0.5%;
+    padding-bottom: 0.5%;
+}
+
+#buttons{
+
+    border: 1px solid #ddd;
+
+
+}
+#end{
+	width:4%;
+	
+	
+}
+
+#start{
+	width:5%;
+	
+	
+}
+

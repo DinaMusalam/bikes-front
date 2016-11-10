@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, SimpleChange, SimpleChanges} from '@angular/core';
 
 declare var AmCharts : any;
 
@@ -10,14 +10,19 @@ declare var AmCharts : any;
 })
 export class ChartComponent  {
   @Input() data;
+  @Input() axisUnit;
+  chart;
 
   constructor() {}
 
   ngAfterViewInit(){
     this.createChart();
   }
-  ngOnChanges(){
-
+  ngOnChanges(changes: SimpleChanges){
+    console.log('changes',changes);
+    if(this.chart){
+      this.updateChartData(changes['data'].currentValue);
+    }
   }
 
   private createChart(){
@@ -89,10 +94,10 @@ export class ChartComponent  {
     var chart;
 
     if (AmCharts.isReady) {
-      createChart();
+      this.chart = createChart();
     } else {
       AmCharts.ready(function () {
-        createChart();
+        this.chart  = createChart();
       });
     }
     function createChart(){
@@ -213,13 +218,13 @@ export class ChartComponent  {
       chart['export'] = {
         "enabled": true,
             "libs": {
-          "path": "../libs/"
+          "path": "assets/libs/"
         },
         "menu": [ {
           "class": "export-main",
           "menu": [ {
             "label": "Download",
-            "menu": [ "PNG", "JPG", "CSV" ]
+            "menu": [ "PNG", "JPG", "CSV","PDF" ]
           }, {
             "label": "Annotate",
             "action": "draw",
@@ -235,6 +240,11 @@ export class ChartComponent  {
       chart.write("chartdiv");
       return chart;
     }
+  }
+
+  updateChartData(data){
+    this.chart.dataProvider = data;
+    this.chart.validateData();
   }
 
 

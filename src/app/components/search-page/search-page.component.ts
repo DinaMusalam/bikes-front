@@ -145,5 +145,15 @@ export class SearchPageComponent implements OnInit {
     };
     this.getReport(filterOptions);
   }
+  testStockholm(){
+    let filterOptions:FilterOptions = {
+      timeStarted:'2014-03-13T08:29:29.000Z',
+      timeEnded:'2016-04-13T08:29:29.000Z',
+      timeResolution:'month',
+      cityId:2673730,
+      countryId:null
+    };
+    this.getReport(filterOptions);
+  }
 
 }

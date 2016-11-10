@@ -1,2 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
+
+#logo{
+    width: 50px;
+    height: 50px;
+}
