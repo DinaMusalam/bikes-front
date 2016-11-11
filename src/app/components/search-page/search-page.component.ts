@@ -13,6 +13,12 @@ import {PDFService} from "../../../services/pdf.service";
 })
 export class SearchPageComponent implements OnInit {
 
+  userInfo2={
+    fullName:"Awesome Researcher",
+    email:"res@domain.com",
+    avatar:"../../../assets/researcher.jpg"
+  };
+
   countries:any[];
   cities:any[];
   cityFilterKeyword='';

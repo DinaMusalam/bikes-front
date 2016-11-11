@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
       </button>
       <a *ngIf="user"  class="navbar-brand"><img [src]="user.avatar" width="30" alt=""></a>
-      <a class="navbar-brand" >{{user.email}}</a>
+      <a *ngIf="user" class="navbar-brand" >{{user.email}}</a>
       <a routerLink="" routerLinkActive="true">Logout</a>
     </div>
   </div><!-- /.container-fluid -->
