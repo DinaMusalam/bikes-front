@@ -1,0 +1,11 @@
+.search-page{
+    background-color: #fcfcfc;
+    /*background-size: cover;*/
+    min-height: 768px;
+    width: 60%;
+    margin: auto;
+    padding: 2%;
+}
+.data-container{
+    margin-top: 25px;
+}

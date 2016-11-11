@@ -21,6 +21,8 @@ import {UserService} from "../services/user.service";
 import {TripService} from "../services/trip.service";
 import { Chart2Component } from './components/chart2/chart2.component';
 import {ConversionService} from '../services/conversion.service';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import {ConversionService} from '../services/conversion.service';
     ChartComponent,
     WelcomePageComponent,
     UserPageComponent,
-    Chart2Component
+    Chart2Component,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

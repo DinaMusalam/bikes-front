@@ -13,6 +13,12 @@ import {PDFService} from "../../../services/pdf.service";
 })
 export class SearchPageComponent implements OnInit {
 
+  userInfo2={
+    fullName:"Awesome Researcher",
+    email:"res@domain.com",
+    avatar:"../../../assets/researcher.jpg"
+  };
+
   countries:any[];
   cities:any[];
   cityFilterKeyword='';
@@ -25,9 +31,9 @@ export class SearchPageComponent implements OnInit {
   selectedCountryId;
   reportData;
   reportDataColumns = [
-    {title: "Duration", dataKey: "duration"},
-    {title: "Distance", dataKey: "distance"},
-    {title: "Date", dataKey: "date"}
+    {title: "Duration", dataKey: "duration",unit:"Hour"},
+    {title: "Distance", dataKey: "distance",unit:"Km"},
+    {title: "Date", dataKey: "date",unit:""}
 
   ];
   cityStatistics:any[];
@@ -38,7 +44,9 @@ export class SearchPageComponent implements OnInit {
   @ViewChild('my_report') reportEle;
 
   constructor( private filterService:FilterService,
-               private csvService:CsvService, private pdfService:PDFService) {}
+               private csvService:CsvService,
+               private pdfService:PDFService,
+              ) {}
 
 
 
@@ -134,6 +142,8 @@ export class SearchPageComponent implements OnInit {
         this.reportData = data;
       },error=>{console.log('error in getting city statistics',error)});
       }
+
+
 
   testMalmo(){
     let filterOptions:FilterOptions = {

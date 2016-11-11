@@ -26,5 +26,19 @@ export class UserService extends Service{
             .catch(this.handleError);
     }
 
+    getUserStatistics(userId):Observable<any>{
+        let url = _API_BASE+'api/users/'+userId+'/statistics';
+        return this.http.get(url)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
+
+    getUserRank(userId):Observable<any>{
+        let url = _API_BASE+'api/users/'+userId+'/rank';
+        return this.http.get(url)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
+
 
 }
