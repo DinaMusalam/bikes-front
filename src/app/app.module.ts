@@ -22,6 +22,7 @@ import {TripService} from "../services/trip.service";
 import { Chart2Component } from './components/chart2/chart2.component';
 import {ConversionService} from '../services/conversion.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     WelcomePageComponent,
     UserPageComponent,
     Chart2Component,
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

@@ -34,6 +34,7 @@
 
 .global-statistics h3{
     font-size: 25px;
+    color: rgba(158,181,166,1);
 }
 .global-statistics i{
     font-size: 48px;

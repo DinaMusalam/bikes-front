@@ -10,7 +10,10 @@ export class ConversionService {
     constructor() { }
 
   toKM(num_value:number){
-    return num_value/1000;
+    return (num_value/1000).toFixed(1);
+  }
+  toHours(duration:number){
+    return Math.floor(duration/3600);
   }
 
   optimizeDistanceFunny(distance:any)
