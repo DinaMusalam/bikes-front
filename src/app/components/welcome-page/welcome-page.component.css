@@ -44,7 +44,8 @@
     padding: 2px;
 }
 .global-statistics .thumbnail{
-    min-height: 200px;
+    min-height: 220px;
+    padding: 15px;
     vertical-align: middle;
 }
 

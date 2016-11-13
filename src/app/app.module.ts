@@ -23,6 +23,10 @@ import { Chart2Component } from './components/chart2/chart2.component';
 import {ConversionService} from '../services/conversion.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import {AuthGuardService} from "../services/auth-gurad.service";
+import {AUTH_PROVIDERS, provideAuth} from "angular2-jwt/angular2-jwt";
+import { UserHomeComponent } from './components/user-home/user-home.component';
 
 
 @NgModule({
@@ -36,7 +40,9 @@ import { FooterComponent } from './components/footer/footer.component';
     UserPageComponent,
     Chart2Component,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    PageNotFoundComponent,
+    UserHomeComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +59,14 @@ import { FooterComponent } from './components/footer/footer.component';
     PDFService,
     UserService,
     TripService,
-    ConversionService
+    ConversionService,
+      AuthGuardService,
+      AUTH_PROVIDERS,
+      provideAuth({
+        tokenName: 'id_token',
+        tokenGetter:(() => JSON.parse(localStorage.getItem('id_token')))
+
+    })
   ],
   bootstrap: [AppComponent]
 })

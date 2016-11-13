@@ -10,6 +10,7 @@ import {ConversionService} from "../../../services/conversion.service" ;
   templateUrl: './user-page.component.html',
   styleUrls: ['./user-page.component.css']
 })
+
 export class UserPageComponent implements OnInit {
 
   id;
@@ -18,16 +19,19 @@ export class UserPageComponent implements OnInit {
   userContributions:any[];
   userStatistics;
   selectedContribution;
+  //userinfo and profile are the same thing in future.
   userInfo2={
-    fullName:"John Mc.Power",
-    email:"john@domain.com",
-    avatar:"../../../assets/cat.png",
-    bio:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio dolorem ducimus earum excepturi exercitationem illo impedit ipsa iusto, non perferendis porro quaerat quas quasi quibusdam repudiandae rerum veritatis voluptas voluptates?",
-    height:182,
-    weight:90,
-    age:32,
-    sex:'male'
-  };
+  fullName:"John Mc.Power",
+  email:"john@domain.com",
+  avatar:"../../../assets/cat.png",
+  bio:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio dolorem ducimus earum excepturi exercitationem illo impedit ipsa iusto, non perferendis porro quaerat quas quasi quibusdam repudiandae rerum veritatis voluptas voluptates?",
+  height:182,
+  weight:90,
+  age:32,
+  sex:'male'
+};
+  profile =JSON.parse(localStorage.getItem('profile'));
+
 
   //ui
   listStart=0;
