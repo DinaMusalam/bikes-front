@@ -19,5 +19,12 @@ export class TripService extends Service{
             .catch(this.handleError);
     }
 
+    getTripGeoJson(conId):Observable<any>{
+        let url = _API_BASE+'api/contributions/'+conId+'/geojson';
+        return this.http.get(url)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
+
 
 }
