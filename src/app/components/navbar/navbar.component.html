@@ -1,19 +1,18 @@
-<nav class="navbar navbar-default ">
+<nav class="navbar navbar-inverse ">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header navbar-right">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <ul class="nav navbar-nav">
-        <li><a *ngIf="user"  class="navbar-brand"><img [src]="user.avatar" width="30" alt=""></a></li>
-        <li><a *ngIf="user" class="navbar-brand" >{{user.email}}</a></li>
-        <li><a (click)="logout()">Logout</a></li>
-      </ul>
-
+        <ul class="nav navbar-nav">
+           <li> <a *ngIf="user"  class="navbar-brand"><img [src]="user.avatar" width="50" alt=""></a></li>
+            <li> <a *ngIf="user" class="navbar-brand" >{{user.email}}</a></li>
+            <li> <a routerLink="" routerLinkActive="true">Logout</a></li>
+        </ul>
+    </div>
+      
+    <div class="navbar-header navbar-left">
+        <ul class="nav navbar-nav">
+           <li> <a  class="navbar-brand"><img src="../../../assets/Bikelogo.png" width="50" alt=""></a></li>
+        </ul>
     </div>
   </div><!-- /.container-fluid -->
 </nav>

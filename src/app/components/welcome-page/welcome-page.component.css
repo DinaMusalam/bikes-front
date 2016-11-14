@@ -1,7 +1,8 @@
 .welcome-container{
     /*background: url('../../../assets/Background.jpg') no-repeat ;*/
+    background: url('../../../assets/background_new.jpg') no-repeat center center fixed;
     background-color: #313131;
-    /*background-size: cover;*/
+    background-size: cover;
     min-height: 768px;
 }
 .intro{
@@ -13,8 +14,12 @@
 }
 .intro h1{
     font-size: 82px;
-    color: #00BB44;
+    color:black;
     text-align: center;
+}
+.intro h4{
+    color:black;
+    
 }
 .login-div{
 
@@ -30,10 +35,11 @@
 .global-statistics{
     text-align: center;
     padding: 5% 0;
+    margin-left: 15%;
 }
 
 .global-statistics h3{
-    font-size: 25px;
+    font-size: 18px;
     color: rgba(158,181,166,1);
 }
 .global-statistics i{
@@ -47,6 +53,7 @@
     min-height: 220px;
     padding: 15px;
     vertical-align: middle;
+    width: 84%;
 }
 
 .wrapper{
@@ -98,3 +105,11 @@
     border-top-right-radius: 0;
 }
 
+.btn {
+    background-color:darkgray;
+}
+
+.col-xs-6 {
+    
+    width:20%; 
+}

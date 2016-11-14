@@ -1,3 +1,4 @@
+<my-navbar [user]="userInfo2"></my-navbar>
 <div class="welcome-container">
   <div class="intro">
     <h1>Bikes</h1>
@@ -6,9 +7,9 @@
   </div>
 
   <div class="login-div">
+
     <button (click)="login(true)" class="btn ntn-block btn-success btn-lg">Private</button>
     <button (click)="login(false)" class="btn ntn-block btn-success btn-lg">Public</button>
-  </div>
 
   <div class="row no-margin global-statistics" *ngIf="globalStatistics">
     <div class="col-xs-6 col-md-3">
