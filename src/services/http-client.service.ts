@@ -9,7 +9,7 @@ import {AuthHttp} from "angular2-jwt";
 @Injectable()
 export class HttpClient {
 
-    constructor(private http: AuthHttp) {
+    constructor(private http: Http) {
     }
 
     get(url):Observable<Response>{

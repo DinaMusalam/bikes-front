@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: '', component: WelcomePageComponent },
   { path: 'home', component: HomePageComponent },
   { path: 'heatmap-test', component: HeatmapTestComponent },
-  { path: 'user/:id',component:UserHomeComponent, canActivate:[AuthGuardService], children:[
+  { path: 'user/:id',component:UserHomeComponent, canActivate:[/*AuthGuardService*/], children:[
     { path: 'profile', component: UserPageComponent},
     {path:'search', component:SearchPageComponent},
   ] },

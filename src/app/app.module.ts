@@ -64,11 +64,13 @@ import {MapService} from "../services/map.service";
       MapService,
       AuthGuardService,
       AUTH_PROVIDERS,
+
       provideAuth({
         tokenName: 'id_token',
         tokenGetter:(() => {
-          let token = localStorage.getItem('id_token');
-          return token?JSON.parse(token):'';
+          //let token = localStorage.getItem('id_token');
+          //return token?JSON.parse(token):' ';
+          return '12121';
         })
 
     })

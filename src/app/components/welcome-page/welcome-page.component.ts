@@ -98,14 +98,14 @@ export class WelcomePageComponent implements OnInit {
   login(isPrivate){
     this.isPrivate = isPrivate;
     //auth is disabled for now.
-    this.lock.show();
+    //this.lock.show();
 
-    // //mock login starts here..
-    // let mockUserId = "a21b56c1-6d28-4ef4-aa9d-1e75f54f61ef";
-    // if(isPrivate)
-    //   this.router.navigate(['user',mockUserId,'profile']);
-    // else
-    //   this.router.navigate(['user',mockUserId,'search']);
+    //mock login starts here..
+    let mockUserId = "a21b56c1-6d28-4ef4-aa9d-1e75f54f61ef";
+    if(isPrivate)
+      this.router.navigate(['user',mockUserId,'profile']);
+    else
+      this.router.navigate(['user',mockUserId,'search']);
 
   }
   logout(){
