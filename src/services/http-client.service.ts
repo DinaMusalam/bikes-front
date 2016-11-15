@@ -12,27 +12,27 @@ export class HttpClient {
     constructor(private http: Http) {
     }
 
-    get(url):Observable<Response>{
+    get(url):Observable<Response> {
         return this.http.get(url);
     }
-    post(url,data):Observable<Response>{
+    post(url,data):Observable<Response> {
         return this.http.post(url,data,this.createAuthOptions());
     }
 
-    put(url,data):Observable<Response>{
+    put(url,data):Observable<Response> {
         return this.http.put(url,data,this.createAuthOptions());
     }
 
-    delete(url):Observable<Response>{
+    delete(url):Observable<Response> {
         return this.http.delete(url,this.createAuthOptions());
     }
 
-    upload(url:string,formData:FormData):Observable<any>{
+    upload(url:string,formData:FormData):Observable<any> {
         return Observable.create((observer:Observer<any>)=>{
 
 
             let xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = ()=>{
+            xhr.onreadystatechange = ()=> {
                 if(xhr.readyState===4){
                     if(xhr.status==200)
                         observer.next(JSON.parse(xhr.response));
