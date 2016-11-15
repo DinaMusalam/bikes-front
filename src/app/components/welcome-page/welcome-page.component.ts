@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {FilterService} from "../../../services/filter.service";
 import {Router} from "@angular/router";
 import {ConversionService} from "../../../services/conversion.service";
+import {JwtHelper,tokenNotExpired} from 'angular2-jwt';
+import {auth0ClientId, auth0Domain} from "../../lib/consts";
+declare var Auth0Lock:any;
 
 @Component({
   selector: 'app-welcome-page',
@@ -10,15 +13,55 @@ import {ConversionService} from "../../../services/conversion.service";
 })
 export class WelcomePageComponent implements OnInit {
 
+  //Auth0 properties
+  authOptions = {
+    auth: {
+    responseType: 'token',
+    params: {scope: 'openid nickname'}
+    },
+    usernameStyle: 'username'
+  };
+  lock = new Auth0Lock(auth0ClientId,auth0Domain,this.authOptions);
+  //jwtHelper = new JwtHelper();
+  isPrivate;
+
   public globalStatistics;
 
-  mockUserId = "a21b56c1-6d28-4ef4-aa9d-1e75f54f61ef";
+
 
   constructor(private router:Router,private filterService:FilterService,private conversionService:ConversionService) {
   }
 
   ngOnInit() {
     this.getGlobalStatistics();
+    this.listenToAuthenticated();
+
+  }
+  getIsPrivateUser(){
+    return this.isPrivate;
+  }
+
+  private listenToAuthenticated(){
+
+    this.lock.on('authenticated',authresult=>{
+      this.lock.getProfile(authresult.idToken,(error,profile)=>{
+
+        if(error) throw new Error(error);
+        //store the auth results to local storage.
+        localStorage.setItem('profile',JSON.stringify(profile));
+        localStorage.setItem('id_token',JSON.stringify(authresult.idToken));
+
+        //console.log('profile',profile);
+
+        //redirect the user after auth
+        console.log('login as private',this.isPrivate);
+        if(this.getIsPrivateUser())
+          this.router.navigate(['user',profile.nickname,'profile']);
+        else this.router.navigate(['user',profile.nickname,'search']);
+
+
+      });
+    });
   }
 
   private getGlobalStatistics(){
@@ -28,11 +71,11 @@ export class WelcomePageComponent implements OnInit {
   }
 
   mock_login(){
-    this.router.navigate(['/user',this.mockUserId]);
+    //this.router.navigate(['/user',this.mockUserId]);
   }
 
   mock_login_public(){
-    this.router.navigate(['/search']);
+    //this.router.navigate(['/search']);
   }
 
   optimizeDistanceFunny(distance:number)
@@ -52,6 +95,29 @@ export class WelcomePageComponent implements OnInit {
     return this.conversionService.optimizeDurationFunny(duration);
   }
 
+  login(isPrivate){
+    this.isPrivate = isPrivate;
+    //auth is disabled for now.
+    this.lock.show();
+
+    // //mock login starts here..
+    // let mockUserId = "a21b56c1-6d28-4ef4-aa9d-1e75f54f61ef";
+    // if(isPrivate)
+    //   this.router.navigate(['user',mockUserId,'profile']);
+    // else
+    //   this.router.navigate(['user',mockUserId,'search']);
+
+  }
+  logout(){
+    localStorage.removeItem('profile');
+    localStorage.removeItem('id_token');
+    this.router.navigate(['']);
+
+  }
+
+  loggedIn(){
+    return tokenNotExpired();
+  }
 
 
 }
