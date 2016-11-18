@@ -35,6 +35,28 @@ export class MapService {
         this.map.addLayer(config);
     }
 
+    addMarker(el,marker:Feature){
+        // add marker to map
+        console.log('marker 1',marker);
+        new mapboxgl.Marker(el, {offset: [-marker.properties.iconSize[0] / 2, -marker.properties.iconSize[1] / 2]})
+            .setLngLat(marker.geometry.coordinates)
+            .addTo(this.map);
 
+    }
+
+
+}
+
+export interface Feature{
+
+    type:string;
+    properties: {
+        message:string
+        iconSize: number[]
+    },
+    geometry: {
+        type: string,
+        coordinates: [number,number]
+    }
 
 }

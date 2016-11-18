@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Params} from "@angular/router";
 import {UserService} from "../../../services/user.service";
 import {TripService} from "../../../services/trip.service";
 import {ConversionService} from "../../../services/conversion.service" ;
-import {MapService} from "../../../services/map.service";
+import {MapService, Feature} from "../../../services/map.service";
 
 
 @Component({
@@ -39,6 +39,7 @@ export class UserPageComponent implements OnInit {
   selectedTab = 'info';
   mapStyles = [{name:'dark',style:'mapbox://styles/mapbox/dark-v9',route:"#00BB44"},{name:'street',style:'mapbox://styles/mapbox/streets-v9',route:"#FF4B1C"}];
   selectedMapStyle = this.mapStyles[1];
+  @ViewChild('start_marker') sMarker;
   listStart=0;
   listEnd;
 
@@ -88,6 +89,18 @@ export class UserPageComponent implements OnInit {
         "line-width": 8
       }
     });
+    let feature:Feature = {
+      type: "Feature",
+      properties: {
+        message: "Foo",
+        iconSize: [60, 60]
+      },
+      geometry: {
+        type: "Point",
+        coordinates: this.tripCoordinates[0]
+      }
+    };
+    this.mapService.addMarker(this.sMarker.nativeElement,feature);
   }
   private visualize(){
     this.mapService.createMap({
@@ -96,6 +109,7 @@ export class UserPageComponent implements OnInit {
       center:this.tripCoordinates[0], // starting position
       zoom: 14 // starting zoom
     });
+
     this.mapService.onMapLoad(()=>this.addRoute(this.tripCoordinates));
   }
 

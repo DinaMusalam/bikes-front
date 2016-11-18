@@ -30,8 +30,15 @@
 }
 
 .user-page h2{
-    color: white;
+    color: white !important;
     font-size: large;
+}
+.user-page h3 ,p{
+    color: white !important;
+}
+
+.user-page  a{
+    color: #2ca48d !important;
 }
 .user-rank i{
    font-size: 62px;

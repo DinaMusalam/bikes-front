@@ -1,49 +1,112 @@
-<my-navbar [user]="userInfo2"></my-navbar>
-<div class="welcome-container">
-  <div class="intro">
-    <h1>Bikes</h1>
-    <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, accusantium aliquid blanditiis cum deleniti, doloremque et fugit inventore labore laboriosam nobis nostrum omnis quia repellat tempore veritatis voluptas. Qui, sapiente.</h4>
-    <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, accusantium aliquid blanditiis cum deleniti, doloremque et fugit inventore labore laboriosam nobis nostrum omnis quia repellat tempore veritatis voluptas. Qui, sapiente.</h4>
-  </div>
-
-  <div class="login-div">
-
-    <button (click)="login(true)" class="btn ntn-block btn-success btn-lg">Private</button>
-    <button (click)="login(false)" class="btn ntn-block btn-success btn-lg">Public</button>
-  </div>
-
-  <div class="row no-margin global-statistics" *ngIf="globalStatistics">
-    <div class="col-xs-6 col-md-3">
-      <div  class="thumbnail">
-        <i class="glyphicon glyphicon-user"></i>
-        <h3>{{globalStatistics.total_users}}</h3>
-        <h4>Users</h4>
+<div id="section1">
+  <header id="header-area" class="intro-section">
+    <div class="container first-segment">
+      <img class="first-image" src="../../../assets/bg-4.jpg" alt="">
+      <div class="login-btns ">
+          <div class="row" style="text-align: center;">
+            <button (click)="login(true)" class="btn ntn-block btn-success btn-lg">Private</button>
+            <button (click)="login(false)" class="btn ntn-block btn-success btn-lg">Public</button>
+          </div>
       </div>
     </div>
-    <div class="col-xs-6 col-md-3">
-      <div  class="thumbnail">
-        <i class="glyphicon glyphicon-flag"></i>
-        <h3> {{globalStatistics.total_contributions}}</h3>
-        <h4>Trips</h4>
-      </div>
-    </div>
-    <div class="col-xs-6 col-md-3">
-      <div  class="thumbnail">
-        <i class="glyphicon glyphicon-time"></i>
-        <h3> {{optimizeDurationFunny(globalStatistics.total_duration)}}</h3>
-        <h5> {{globalStatistics.total_duration}} sec</h5>
-      </div>
-    </div>
-    <div class="col-xs-6 col-md-3">
-      <div  class="thumbnail">
-        <i class="glyphicon glyphicon-road"></i>
-        <h3>{{optimizeDistanceFunny(globalStatistics.total_distance)}}</h3>
-        <h5>{{optimizeDistance(globalStatistics.total_distance)}}</h5>
-      </div>
-    </div>
-  </div>
 
-
+  </header>
 </div>
+<!-- Start Testimornial Area -->
+<section id="testimornial-area">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
+        <div class="testimonial-content" *ngIf="globalStatistics">
+          <img src="../../../assets/img/cyclists.jpg" alt="Image">
+          <h2>Users</h2>
+          <h4>{{globalStatistics.total_users}}</h4>
+          <br>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
+        <div class="testimonial-content" *ngIf="globalStatistics">
+          <img src="../../../assets/img/trips_r.jpg" alt="Image">
+          <h2>Trips</h2>
+          <h4>{{globalStatistics.total_contributions}}</h4>
+          <br>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
+        <div class="testimonial-content" *ngIf="globalStatistics">
+          <img src="../../../assets/img/road_r.jpg" alt="Image">
+          <h2>Distance</h2>
+          <h4>{{optimizeDurationFunny(globalStatistics.total_distance)}}</h4>
+          <h5>{{optimizeDistance(globalStatistics.total_distance)}}</h5>
 
+          <br>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
+        <div class="testimonial-content" *ngIf="globalStatistics">
+          <img src="../../../assets/img/duration.jpg"  alt="Image">
+          <h2>Duration</h2>
+          <h4>{{optimizeDurationFunny(globalStatistics.total_duration)}}</h4>
+          <h5> {{globalStatistics.total_duration}} sec</h5>
+          <br>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="tm-box">
+          <img src="../../../assets/img/family.jpg" alt="Image" height="300" class="img-responsive">
+          <div class="tm-box-description">
+            <h2>One Big Column</h2>
+            <p class="tm-box-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempor eros eget eros maximus, ut cursus sem euismod. Donec iaculis tristique odio at consectetur. Nullam dignissim varius suscipit. Sed in leo sit amet velit finibus pretium. Vivamus dictum nisi ac fermentum interdum. Vestibulum vel mauris at erat mattis accumsan et ac lorem. Cras non venenatis orci, sed tincidunt massa. Duis nisl lectus, auctor eu sodales at, dignissim eu orci. Sed vitae venenatis magna, in blandit metus. Praesent volutpat cursus rhoncus. Aenean arcu diam, suscipit ac neque in, sollicitudin convallis orci.</p>
+            <p class="tm-box-p">Fusce eu porta massa, sed tincidunt turpis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus a urna tellus. Integer pharetra vitae nisi et lacinia. Morbi sagittis justo a velit placerat ullamcorper quis quis velit. Sed convallis at risus ullamcorper auctor. Praesent quis velit neque. Quisque semper porta nisi vitae suscipit. Duis lectus magna, ornare ac scelerisque quis, maximus eget nisi.</p>
+            <a href="#" class="content-link">Read More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Testimornial Area -->
+<div id="section4">
+  <!-- Start Contact Area -->
+  <section id="contact-area" class="contact-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 text-center inner">
+          <div class="contact-content">
+            <h1>contact form</h1>
+            <div class="row">
+              <div class="col-sm-12">
+                <p>Nunc diam leo, fringilla vulputate elit lobortis, consectetur vestibulum quam. Sed id <br>
+                  felis ligula. In euismod libero at magna dapibus, in rutrum velit lacinia. <br>
+                  Etiam a mi quis arcu varius condimentum.</p>
+              </div>
+            </div>
 
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <form action="#" method="post" class="contact-form">
+            <div class="col-sm-6 contact-form-left">
+              <div class="form-group">
+                <input name="name" type="text" class="form-control" id="name" placeholder="Name">
+                <input type="email" name="email" class="form-control" id="mail" placeholder="Email">
+                <input name="subject" type="text" class="form-control" id="subject" placeholder="Subject">
+              </div>
+            </div>
+            <div class="col-sm-6 contact-form-right">
+              <div class="form-group">
+                <textarea name="message" rows="6" class="form-control" id="comment" placeholder="Your message here..."></textarea>
+                <button type="submit" class="btn btn-default">Send</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Contact Area -->
+</div>
