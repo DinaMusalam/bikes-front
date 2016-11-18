@@ -1,0 +1,49 @@
+<my-navbar [user]="userInfo2"></my-navbar>
+<div class="welcome-container">
+  <div class="intro">
+    <h1>Bikes</h1>
+    <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, accusantium aliquid blanditiis cum deleniti, doloremque et fugit inventore labore laboriosam nobis nostrum omnis quia repellat tempore veritatis voluptas. Qui, sapiente.</h4>
+    <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, accusantium aliquid blanditiis cum deleniti, doloremque et fugit inventore labore laboriosam nobis nostrum omnis quia repellat tempore veritatis voluptas. Qui, sapiente.</h4>
+  </div>
+
+  <div class="login-div">
+
+    <button (click)="login(true)" class="btn ntn-block btn-success btn-lg">Private</button>
+    <button (click)="login(false)" class="btn ntn-block btn-success btn-lg">Public</button>
+  </div>
+
+  <div class="row no-margin global-statistics" *ngIf="globalStatistics">
+    <div class="col-xs-6 col-md-3">
+      <div  class="thumbnail">
+        <i class="glyphicon glyphicon-user"></i>
+        <h3>{{globalStatistics.total_users}}</h3>
+        <h4>Users</h4>
+      </div>
+    </div>
+    <div class="col-xs-6 col-md-3">
+      <div  class="thumbnail">
+        <i class="glyphicon glyphicon-flag"></i>
+        <h3> {{globalStatistics.total_contributions}}</h3>
+        <h4>Trips</h4>
+      </div>
+    </div>
+    <div class="col-xs-6 col-md-3">
+      <div  class="thumbnail">
+        <i class="glyphicon glyphicon-time"></i>
+        <h3> {{optimizeDurationFunny(globalStatistics.total_duration)}}</h3>
+        <h5> {{globalStatistics.total_duration}} sec</h5>
+      </div>
+    </div>
+    <div class="col-xs-6 col-md-3">
+      <div  class="thumbnail">
+        <i class="glyphicon glyphicon-road"></i>
+        <h3>{{optimizeDistanceFunny(globalStatistics.total_distance)}}</h3>
+        <h5>{{optimizeDistance(globalStatistics.total_distance)}}</h5>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+

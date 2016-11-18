@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import {MaterialModule} from "@angular/material";
 import { SearchPageComponent } from './components/search-page/search-page.component';
 import {Ng2BikesRoutingModule} from "./app-routing.module";
 import {FilterService} from "../services/filter.service";
@@ -23,6 +22,12 @@ import { Chart2Component } from './components/chart2/chart2.component';
 import {ConversionService} from '../services/conversion.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import {AuthGuardService} from "../services/auth-gurad.service";
+import {AUTH_PROVIDERS, provideAuth} from "angular2-jwt/angular2-jwt";
+import { UserHomeComponent } from './components/user-home/user-home.component';
+import { HeatmapTestComponent } from './components/heatmap-test/heatmap-test.component';
+import {MapService} from "../services/map.service";
 
 
 @NgModule({
@@ -36,13 +41,15 @@ import { FooterComponent } from './components/footer/footer.component';
     UserPageComponent,
     Chart2Component,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    PageNotFoundComponent,
+    UserHomeComponent,
+    HeatmapTestComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialModule.forRoot(),
     Ng2BikesRoutingModule,
   ],
   providers: [
@@ -53,7 +60,20 @@ import { FooterComponent } from './components/footer/footer.component';
     PDFService,
     UserService,
     TripService,
-    ConversionService
+    ConversionService,
+      MapService,
+      AuthGuardService,
+      AUTH_PROVIDERS,
+
+      provideAuth({
+        tokenName: 'id_token',
+        tokenGetter:(() => {
+          //let token = localStorage.getItem('id_token');
+          //return token?JSON.parse(token):' ';
+          return '12121';
+        })
+
+    })
   ],
   bootstrap: [AppComponent]
 })

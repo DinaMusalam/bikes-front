@@ -57,5 +57,14 @@ export class FilterService extends Service{
             .catch(this.handleError);
     }
 
+    getGeoJson(data):Observable<any>{
+        let url = _API_BASE+'api/cities/'+data.cityId+'/contributions/geojson/'+data.timeStarted+'/'+data.timeEnded;
+        return this.http.get(url)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
+
+
+
 
 }

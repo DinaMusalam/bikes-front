@@ -4,6 +4,7 @@
 import {Injectable} from '@angular/core';
 import {Http, RequestOptions, Headers, Response} from "@angular/http";
 import {Observable, Observer} from "rxjs/Rx";
+import {AuthHttp} from "angular2-jwt";
 
 @Injectable()
 export class HttpClient {
@@ -12,7 +13,7 @@ export class HttpClient {
     }
 
     get(url):Observable<Response>{
-        return this.http.get(url,this.createAuthOptions());
+        return this.http.get(url);
     }
     post(url,data):Observable<Response>{
         return this.http.post(url,data,this.createAuthOptions());

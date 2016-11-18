@@ -1,11 +1,29 @@
 .search-page{
-    background-color: #fcfcfc;
-    /*background-size: cover;*/
-    min-height: 768px;
-    width: 60%;
-    margin: auto;
-    padding: 2%;
+    width: 100%;
+    padding: 15px 15px 0 25px;
+
 }
-.data-container{
-    margin-top: 25px;
+
+.search-page .side-panel{
+    padding: 15px;
+
 }
+
+#map{
+    width: 100%;
+    height: 670px;
+}
+
+.map-osd{
+    position: absolute;
+    top: 16%;
+    right: 2%;
+    width: 20%;
+    height: 200px;
+    z-index: 100;
+}
+
+.form-group {
+    color: white;
+}
+

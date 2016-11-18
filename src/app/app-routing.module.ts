@@ -5,12 +5,20 @@ import {AppComponent} from "./app.component";
 import {HomePageComponent} from "./components/home-page/home-page.component";
 import {WelcomePageComponent} from "./components/welcome-page/welcome-page.component";
 import {UserPageComponent} from "./components/user-page/user-page.component";
+import {PageNotFoundComponent} from "./components/page-not-found/page-not-found.component";
+import {AuthGuardService} from "../services/auth-gurad.service";
+import {UserHomeComponent} from "./components/user-home/user-home.component";
+import {HeatmapTestComponent} from "./components/heatmap-test/heatmap-test.component";
 
 const routes: Routes = [
   { path: '', component: WelcomePageComponent },
   { path: 'home', component: HomePageComponent },
-  {path:'search', component:SearchPageComponent},
-  { path: 'user/:id', component: UserPageComponent },
+  { path: 'heatmap-test', component: HeatmapTestComponent },
+  { path: 'user/:id',component:UserHomeComponent, canActivate:[/*AuthGuardService*/], children:[
+    { path: 'profile', component: UserPageComponent},
+    {path:'search', component:SearchPageComponent},
+  ] },
+  { path: '**', component: PageNotFoundComponent },
 
 ];
 

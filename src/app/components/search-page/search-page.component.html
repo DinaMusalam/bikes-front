@@ -1,8 +1,8 @@
-<my-navbar [user]="userInfo2"></my-navbar>
 <div class="search-page">
-  <div class="form">
-    <div class="row">
-      <div class="col-md-6">
+
+  <div class="row">
+    <div class="col-md-3 side-panel">
+      <div class="row">
         <div class="form-group">
           <label >Country</label>
           <select class="form-control input-sm" [(ngModel)]="selectedCountryId" (change)="getCities($event.target.value)">
@@ -10,7 +10,7 @@
           </select>
         </div>
       </div>
-      <div class="col-md-6">
+      <div class="row">
         <div class="form-group">
           <label >City</label>
           <select class="form-control input-sm"  (change)="getCity($event.target.value)">
@@ -18,21 +18,19 @@
           </select>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-4">
+      <div class="row">
         <div class="form-group">
           <label for="mydate_s">Start <i class="glyphicon glyphicon-calendar"></i></label>
           <input type="date" class="form-control input-sm" id="mydate_s"  [(ngModel)]="timeStarted">
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="row">
         <div class="form-group">
           <label for="mydate_e">End <i class="glyphicon glyphicon-calendar"></i></label>
           <input type="date" class="form-control" id="mydate_e" [(ngModel)]="timesEnded">
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="row">
         <div class="form-group">
           <label >Time Resolution</label>
           <select class="form-control"  (change)="setTimeResolution($event.target.value)">
@@ -41,40 +39,57 @@
 
         </div>
       </div>
+      <div class="row">
+        <button (click)="getData()" class="btn btn-success" >Submit</button>
+      </div>
+      <div class="row">
+        <div class="btn-group">
+          <button class="btn btn-warn" (click)="testMalmo()">Test Malmo</button>
+          <button class="btn btn-warn" (click)="testStockholm()">Test Stockholm</button>
+        </div>
+      </div>
     </div>
-    <button (click)="getData()" class="btn btn-success" >Submit</button>
-    <div class="btn-group">
-      <button class="btn btn-warn" (click)="testMalmo()">Test Malmo</button>
-      <button class="btn btn-warn" (click)="testStockholm()">Test Stockholm</button>
-    </div>
-  </div>
-  <div class="data-container" *ngIf="reportData">
+    <div class="col-md-9">
+      <div class="map-osd">
+        <div class="btn-group">
+          <button class="btn btn-default" (click)="selectMapStyle('street')">Street</button>
+          <button class="btn btn-default" (click)="selectMapStyle('dark')">Dark</button>
+        </div>
+      </div>
+      <div id="map"></div>
+      <div class="data-container" *ngIf="reportData">
 
-    <div class="btn-group" role="group">
-      <button (click)="showTable=true" class="btn btn-success">Table</button>
-      <button (click)="showTable=false" class="btn btn-success">Chart</button>
-      <button  class="btn btn-success">Map</button>
-    </div>
-    <div [hidden]="!showTable" class="row">
-      <div class="thumbnail">
-        <div class="caption">
-          <h3>The filtered information show in a Tabel </h3>
-          <div id="buttons">
-            <button (click)="saveCsvFile(reportData)" class="btn btn-primary">CSV</button>
-            <button (click)="saveTableAsPDF()" class="btn btn-primary">pdf</button>
-          </div><!-- /buttons -->
-          <div id="table">
-            <report-table  [data]="reportData" [columns]="reportDataColumns"></report-table>
-          </div><!-- /table -->
-        </div><!-- /caption -->
-      </div><!-- /thumbnail -->
-    </div><!-- /row -->
-    <div [hidden]="showTable" class="row">
-      <report-chart  [data]="reportData" ></report-chart>
+        <div class="btn-group" role="group">
+          <button (click)="showTable=true" class="btn btn-success">Table</button>
+          <button (click)="showTable=false" class="btn btn-success">Chart</button>
+          <button  class="btn btn-success">Map</button>
+        </div>
+        <div [hidden]="!showTable" class="row">
+          <div class="thumbnail">
+            <div class="caption">
+              <h3>The filtered information show in a Tabel </h3>
+              <div id="buttons">
+                <button (click)="saveCsvFile(reportData)" class="btn btn-primary">CSV</button>
+                <button (click)="saveTableAsPDF()" class="btn btn-primary">pdf</button>
+              </div><!-- /buttons -->
+              <div id="table">
+                <report-table  [data]="reportData" [columns]="reportDataColumns"></report-table>
+              </div><!-- /table -->
+            </div><!-- /caption -->
+          </div><!-- /thumbnail -->
+        </div><!-- /row -->
+        <div [hidden]="showTable" class="row">
+          <report-chart  [data]="reportData" ></report-chart>
+        </div>
+
+      </div>
     </div>
 
   </div>
 </div>
+
+
+
 
 
 
