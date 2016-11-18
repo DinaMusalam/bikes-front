@@ -24,17 +24,7 @@
       </div>
       <div [ngSwitch]="selectedTab">
         <div *ngSwitchCase="'info'" class="row">
-          <ul class="list-group" *ngIf="userStatistics">
-            <li class="list-group-item">Age <span class="badge">{{userInfo2.age}} years</span></li>
-            <li class="list-group-item">Sex <span class="badge">{{userInfo2.sex}}</span></li>
-            <li class="list-group-item">Height <span class="badge">{{userInfo2.height}} cm</span></li>
-            <li class="list-group-item">Weight <span class="badge">{{userInfo2.weight}} kg</span></li>
-            <li class="list-group-item">Total Distance <span class="badge primary">{{optimizeDistance(userStatistics.total_distance)}}</span></li>
-            <li class="list-group-item">Average Distance Per Trip <span class="badge primary">{{optimizeDistance(userStatistics.avg_distance)}}</span></li>
-            <li class="list-group-item">Total Trips <span class="badge primary">{{userStatistics.total_trips}}</span></li>
-            <li class="list-group-item">Total Duration <span class="badge primary">{{humanizeDuration(userStatistics.total_duration)}}</span></li>
-            <li class="list-group-item">Average Duration Per Trip <span class="badge primary">{{humanizeDuration(userStatistics.avg_duration)}}</span></li>
-          </ul>
+          <app-user-card [userInfo]="userInfo2" [userStatistics]="userStatistics"></app-user-card>
         </div>
         <div *ngSwitchCase="'trips'">
           <div class="row">
