@@ -196,8 +196,6 @@ export class SearchPageComponent implements OnInit {
       },error=>{console.log('error in getting city statistics',error)});
       }
 
-
-
   testMalmo(){
     let filterOptions:FilterOptions = {
       timeStarted:'2016-03-13T08:29:29.000Z',
