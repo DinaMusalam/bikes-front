@@ -22,20 +22,13 @@
           <li role="presentation" [class.active]="selectedTab=='trips'"><a (click)="selectedTab='trips';">Trips</a></li>
         </ul>
       </div>
-      <div [ngSwitch]="selectedTab">
+      <div [ngSwitch]="selectedTab" >
         <div *ngSwitchCase="'info'" class="row">
           <app-user-card [userInfo]="userInfo2" [userStatistics]="userStatistics"></app-user-card>
         </div>
         <div *ngSwitchCase="'trips'">
           <div class="row">
-            <h3 class = "text-success">Recent Trips</h3>
-            <ul class="list-group">
-              <li *ngFor="let contribution of userContributions|slice:0:10" class="list-group-item"><a role="button" (click)="getContributionDetails(contribution.contribution_id)"> {{dateFormat(contribution.started_at)}} </a>
-              </li>
-            </ul>
-          </div>
-          <div class="row">
-
+            <app-user-trips-list [trips]="userContributions" (tripSelected)="getContributionDetails($event)"></app-user-trips-list>
           </div>
         </div>
 

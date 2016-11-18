@@ -163,8 +163,7 @@ export class UserPageComponent implements OnInit {
     let ret = this.conversionService.optimizeDistance(distance);
     return ret.distance + " " + ret.unit;
   }
-  dateFormat(date:string)
-  {
+  dateFormat(date:string)  {
     return this.conversionService.format(date,"DD-MMM-YYYY   HH:mm");
   }
   humanizeDuration(_duration:number)

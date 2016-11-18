@@ -1,0 +1,6 @@
+<div class="user-trips-list">
+  <ul class="list-group" *ngIf="trips">
+    <li *ngFor="let trip of trips|slice:0:9" class="list-group-item"><a role="button" (click)="selectTrip(trip.contribution_id)"> {{dateFormat(trip.started_at)}} </a>
+    </li>
+  </ul>
+</div>

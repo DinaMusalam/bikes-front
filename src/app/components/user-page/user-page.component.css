@@ -36,6 +36,9 @@
 .user-page h3 ,p{
     color: white !important;
 }
+.user-page .side-panel h5{
+    color: white;
+}
 
 .user-page  a{
     color: #2ca48d !important;

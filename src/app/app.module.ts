@@ -29,6 +29,7 @@ import { UserHomeComponent } from './components/user-home/user-home.component';
 import { HeatmapTestComponent } from './components/heatmap-test/heatmap-test.component';
 import {MapService} from "../services/map.service";
 import { UserCardComponent } from './components/user-card/user-card.component';
+import { UserTripsListComponent } from './components/user-trips-list/user-trips-list.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { UserCardComponent } from './components/user-card/user-card.component';
     PageNotFoundComponent,
     UserHomeComponent,
     HeatmapTestComponent,
-    UserCardComponent
+    UserCardComponent,
+    UserTripsListComponent
   ],
   imports: [
     BrowserModule,
