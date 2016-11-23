@@ -58,7 +58,9 @@
         </div>
       </div>
       <div id="map"></div>
-      <div #start_marker></div>
+      <div #start_marker class="marker" [hidden]="!selectedContribution"><i class="glyphicon glyphicon-screenshot " ></i></div>
+      <div #end_marker class="marker"><i class="glyphicon glyphicon-flag" [hidden]="!selectedContribution" ></i></div>
+
     </div>
 
   </div>
