@@ -36,6 +36,9 @@
 .user-page h3 ,p{
     color: white !important;
 }
+.user-page .side-panel h5{
+    color: white;
+}
 
 .user-page  a{
     color: #2ca48d !important;
@@ -59,4 +62,15 @@
     width: 20%;
     height: 100%;
     z-index: 100;
+}
+.marker{
+    background-color: white;
+    box-shadow: 0 0 5px #444;
+    border-radius: 10px;
+}
+.marker i{
+    font-size: x-large;
+    color: orange;
+    padding: 5px;
+
 }

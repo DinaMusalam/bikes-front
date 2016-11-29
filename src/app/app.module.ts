@@ -28,6 +28,9 @@ import {AUTH_PROVIDERS, provideAuth} from "angular2-jwt/angular2-jwt";
 import { UserHomeComponent } from './components/user-home/user-home.component';
 import { HeatmapTestComponent } from './components/heatmap-test/heatmap-test.component';
 import {MapService} from "../services/map.service";
+import { UserCardComponent } from './components/user-card/user-card.component';
+import { UserTripsListComponent } from './components/user-trips-list/user-trips-list.component';
+import { MapComponent } from './components/map/map.component';
 
 
 @NgModule({
@@ -44,7 +47,10 @@ import {MapService} from "../services/map.service";
     FooterComponent,
     PageNotFoundComponent,
     UserHomeComponent,
-    HeatmapTestComponent
+    HeatmapTestComponent,
+    UserCardComponent,
+    UserTripsListComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,

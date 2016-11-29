@@ -14,14 +14,14 @@ import {MapService, Feature} from "../../../services/map.service";
 
 export class UserPageComponent implements OnInit {
 
-  id;
+  id:any;
   userInfo;
   userRank:{rank:number;total:number};
   userContributions:any[];
   userStatistics;
   selectedContribution;
   tripCoordinates;
-  //userinfo and profile are the same thing in future.
+  //userInfo and profile are the same thing in future.
   userInfo2={
   fullName:"John Mc.Power",
   email:"john@domain.com",
@@ -32,7 +32,7 @@ export class UserPageComponent implements OnInit {
   age:32,
   sex:'male'
 };
-  profile =JSON.parse(localStorage.getItem('profile'));
+  //profile =JSON.parse(localStorage.getItem('profile'));
 
 
   //ui
@@ -40,6 +40,8 @@ export class UserPageComponent implements OnInit {
   mapStyles = [{name:'dark',style:'mapbox://styles/mapbox/dark-v9',route:"#00BB44"},{name:'street',style:'mapbox://styles/mapbox/streets-v9',route:"#FF4B1C"}];
   selectedMapStyle = this.mapStyles[1];
   @ViewChild('start_marker') sMarker;
+  @ViewChild('end_marker') eMarker;
+
   listStart=0;
   listEnd;
 
@@ -47,10 +49,13 @@ export class UserPageComponent implements OnInit {
               private userService:UserService,
               private tripService:TripService,
               private mapService:MapService,
-              private conversionService:ConversionService) { }
+              private conversionService:ConversionService) {
+
+    this.route.parent.params.subscribe(p=>this.id = p['id']);
+  }
 
   ngOnInit() {
-    this.id = this.profile.nickname;
+    //this.id = this.profile.nickname;
     this.userService.getUserInfo(this.id).subscribe(data=>{
       console.log('user info',data);
       this.userInfo = data;
@@ -86,21 +91,34 @@ export class UserPageComponent implements OnInit {
       },
       "paint": {
         "line-color": this.selectedMapStyle.route,
-        "line-width": 8
+        "line-width": 2
       }
     });
-    let feature:Feature = {
+    let sFeature:Feature = {
       type: "Feature",
       properties: {
         message: "Foo",
-        iconSize: [60, 60]
+        iconSize: [40, 40]
       },
       geometry: {
         type: "Point",
         coordinates: this.tripCoordinates[0]
       }
     };
-    this.mapService.addMarker(this.sMarker.nativeElement,feature);
+    let eFeature:Feature = {
+      type: "Feature",
+      properties: {
+        message: "Foo",
+        iconSize: [40, 40]
+      },
+      geometry: {
+        type: "Point",
+        coordinates: this.tripCoordinates[this.tripCoordinates.length-1]
+      }
+    };
+    this.mapService.addMarker(this.sMarker.nativeElement,sFeature);
+    this.mapService.addMarker(this.eMarker.nativeElement,eFeature);
+
   }
   private visualize(){
     this.mapService.createMap({
@@ -163,8 +181,7 @@ export class UserPageComponent implements OnInit {
     let ret = this.conversionService.optimizeDistance(distance);
     return ret.distance + " " + ret.unit;
   }
-  dateFormat(date:string)
-  {
+  dateFormat(date:string)  {
     return this.conversionService.format(date,"DD-MMM-YYYY   HH:mm");
   }
   humanizeDuration(_duration:number)

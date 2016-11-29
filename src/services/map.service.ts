@@ -38,10 +38,9 @@ export class MapService {
     addMarker(el,marker:Feature){
         // add marker to map
         console.log('marker 1',marker);
-        new mapboxgl.Marker(el, {offset: [-marker.properties.iconSize[0] / 2, -marker.properties.iconSize[1] / 2]})
+        new mapboxgl.Marker(el, {offset: [0 , -marker.properties.iconSize[1]]})
             .setLngLat(marker.geometry.coordinates)
             .addTo(this.map);
-
     }
 
 
