@@ -32,14 +32,9 @@ export class SearchPageComponent implements OnInit {
 
   ];
   cityStatistics:any[];
-  tripCoordinates=[];
+  tripsGeojson=[];
   mapCenter=[ 14.9023,58.87988];
   mapZoom = 6;
-
-  //searchBoxVisible=true;
-  mapStyles = [{name:'dark',style:'mapbox://styles/mapbox/dark-v9',route:"#00BB44"},{name:'street',style:'mapbox://styles/mapbox/streets-v9',route:"#FF4B1C"}];
-  selectedMapStyle = this.mapStyles[1];
-  pet='table';
 
   @ViewChild('my_report') reportEle;
 
@@ -50,50 +45,7 @@ export class SearchPageComponent implements OnInit {
               ) {}
 
   ngOnInit() {
-    this.visualize();
     this.getCountries();
-  }
-
-  selectMapStyle(styleName:string){
-    this.selectedMapStyle = this.mapStyles.filter(style=>style.name == styleName)[0];
-    this.visualize();
-  }
-
-  private addRoute(coordinates){
-    let source = 'route';
-    this.mapService.addSource(source, {
-      "type": "geojson",
-      "data": {
-        "type": "Feature",
-        "properties": {},
-        "geometry": {
-          "type": "LineString",
-          "coordinates": coordinates
-        }
-      }
-    });
-    this.mapService.addLayer({
-      "id": source,
-      "type": "line",
-      "source": source,
-      "layout": {
-        "line-join": "round",
-        "line-cap": "round"
-      },
-      "paint": {
-        "line-color": this.selectedMapStyle.route,
-        "line-width": 8
-      }
-    });
-  }
-  private visualize(){
-    this.mapService.createMap({
-      container: 'map', // container id
-      style: this.selectedMapStyle.style, //stylesheet location
-      center:this.mapCenter, // starting position
-      zoom: this.mapZoom // starting zoom
-    });
-    this.mapService.onMapLoad(()=>this.addRoute(this.tripCoordinates));
   }
 
   getCountries(){
@@ -121,16 +73,10 @@ export class SearchPageComponent implements OnInit {
     this.selectedCity = city;
     this.mapCenter = [this.selectedCity.longitude,this.selectedCity.latitude];
     this.mapZoom = 12;
-    this.visualize();
-    this.visualizeGeneralInfo(city);
     this.filterService.getCityStatistics(city.geonameid).subscribe(data=>{
       console.log('city statistics',data);
       this.cityStatistics = data.statistics;
     },error=>{console.log('error in getting city',error);});
-  }
-
-  visualizeGeneralInfo(city){
-    //to do add map
   }
 
   setTimeResolution(timeRes){
@@ -141,10 +87,6 @@ export class SearchPageComponent implements OnInit {
     let csv = this.csvService.ConvertToCSV(data);
     window.open("data:text/csv;charset=utf-8," +csv ,'report');
 
-  }
-
-  savePDF(){
-    this.pdfService.createHtml(this.reportEle.nativeElement);
   }
 
   saveTableAsPDF(){
@@ -184,15 +126,12 @@ export class SearchPageComponent implements OnInit {
       this.filterService.getData(filterOptions).subscribe(data=>{
         console.log('city statistics',data);
         this.reportData = data;
-        this.filterService.getGeoJson({cityId:2692969,timeStarted:this.timeStarted,timeEnded:this.timesEnded}).subscribe(_data=>{
-          let data = JSON.parse(_data.st_asgeojson);
-          console.log('geojson foo boo',data);
-          this.tripCoordinates = data.coordinates;
-          this.mapCenter = this.tripCoordinates[0];
-          console.log('geojson array lenght',data.coordinates.length);
-          //this.visualize();
 
-        },error=>console.log('eeror in getting city geojson', error));
+        this.filterService.getGeoJson({cityId:2692969,timeStarted:this.timeStarted}).subscribe(_data=>{
+          this.tripsGeojson = _data;
+          console.log('city trips geojson',_data);
+
+        },error=>console.log('error in getting city geojson', error));
       },error=>{console.log('error in getting city statistics',error)});
       }
 
