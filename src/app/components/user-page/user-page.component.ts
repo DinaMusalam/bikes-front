@@ -14,7 +14,7 @@ import {MapService, Feature} from "../../../services/map.service";
 
 export class UserPageComponent implements OnInit {
 
-  id;
+  id:any;
   userInfo;
   userRank:{rank:number;total:number};
   userContributions:any[];
@@ -50,6 +50,7 @@ export class UserPageComponent implements OnInit {
               private tripService:TripService,
               private mapService:MapService,
               private conversionService:ConversionService) {
+
     this.route.parent.params.subscribe(p=>this.id = p['id']);
   }
 
