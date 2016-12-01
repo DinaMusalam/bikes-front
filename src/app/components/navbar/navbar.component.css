@@ -1,4 +1,21 @@
 .navbar{
     margin-bottom: 0;
     height: auto;
+    background-color: #090909;
+    border-color: #090909;
 }
+  .container-fluid {
+    padding-right: 45px;
+    padding-left: 39px;
+    margin-right: auto;
+    margin-left: auto;
+      padding-top: 1%;}
+.navbar-nav>li>a {
+    padding-top: 0px;
+    padding-bottom: 53px;}
+
+.nav>li>a:focus, .nav>li>a:hover {
+    text-decoration: none;
+    background-color: rgba(0,0,0,0);}
+
+
