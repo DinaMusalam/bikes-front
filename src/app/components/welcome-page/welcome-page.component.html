@@ -1,21 +1,50 @@
 <div id="section1">
   <header id="header-area" class="intro-section">
-    <div class="container first-segment">
-      <img class="first-image" src="../../../assets/bg-4.jpg" alt="">
-      <div class="login-btns ">
-          <div class="row" style="text-align: center;">
-            <button (click)="login(true)" class="btn ntn-block btn-success btn-lg">Private</button>
-            <button (click)="login(false)" class="btn ntn-block btn-success btn-lg">Public</button>
-          </div>
-      </div>
-    </div>
+        <div class="body-background"></div>
+  	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>                        
+				</button>
+			</div>   
+			<div class="single-page-nav sticky-wrapper" id="tmNavbar">
+				<ul class="nav navbar-nav">
+					<li><button  routerLink="" routerLinkActive="true" >Home</button></li>
+					<li><button (click)="login(true)">Private</button> </li>
+					<li><button (click)="login(false)">Public</button></li>
 
-  </header>
+				</ul>
+			</div>
+  
+        </div>
+	</nav> 
+      
+      <div id='test'></div>
+      
+      
+      			<div class="container">
+				<div class="row">
+					<div class="col-sm-12 text-center">
+						<div class="header-content">
+							<h1><img src="../../../assets/Bikes.png" alt="Image"></h1>
+							</div>
+					</div>
+				</div>
+			</div>
+      
+      
+      
+   </header>
 </div>
 <!-- Start Testimornial Area -->
 <section id="testimornial-area">
+ 
   <div class="container">
     <div class="row text-center">
+     <div class="news-thumb col-xs-12">
       <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
         <div class="testimonial-content" *ngIf="globalStatistics">
           <img src="../../../assets/img/cyclists.jpg" alt="Image">
@@ -51,20 +80,9 @@
           <br>
         </div>
       </div>
+      </div>  
     </div>
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="tm-box">
-          <img src="../../../assets/img/family.jpg" alt="Image" height="300" class="img-responsive">
-          <div class="tm-box-description">
-            <h2>One Big Column</h2>
-            <p class="tm-box-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempor eros eget eros maximus, ut cursus sem euismod. Donec iaculis tristique odio at consectetur. Nullam dignissim varius suscipit. Sed in leo sit amet velit finibus pretium. Vivamus dictum nisi ac fermentum interdum. Vestibulum vel mauris at erat mattis accumsan et ac lorem. Cras non venenatis orci, sed tincidunt massa. Duis nisl lectus, auctor eu sodales at, dignissim eu orci. Sed vitae venenatis magna, in blandit metus. Praesent volutpat cursus rhoncus. Aenean arcu diam, suscipit ac neque in, sollicitudin convallis orci.</p>
-            <p class="tm-box-p">Fusce eu porta massa, sed tincidunt turpis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus a urna tellus. Integer pharetra vitae nisi et lacinia. Morbi sagittis justo a velit placerat ullamcorper quis quis velit. Sed convallis at risus ullamcorper auctor. Praesent quis velit neque. Quisque semper porta nisi vitae suscipit. Duis lectus magna, ornare ac scelerisque quis, maximus eget nisi.</p>
-            <a href="#" class="content-link">Read More</a>
-          </div>
-        </div>
-      </div>
-    </div>
+
   </div>
 </section>
 <!-- End Testimornial Area -->
@@ -75,12 +93,13 @@
       <div class="row">
         <div class="col-sm-12 text-center inner">
           <div class="contact-content">
-            <h1>contact form</h1>
+            <h1>Contact Us</h1>
             <div class="row">
               <div class="col-sm-12">
-                <p>Nunc diam leo, fringilla vulputate elit lobortis, consectetur vestibulum quam. Sed id <br>
-                  felis ligula. In euismod libero at magna dapibus, in rutrum velit lacinia. <br>
-                  Etiam a mi quis arcu varius condimentum.</p>
+                <p>Bike vs cars web application helps the user to find his contributions and visualise his data via table or chart. <br>
+                 In addition, this data helps the city planer to plane a better bikes line for better environment.  
+                 
+                 .</p>
               </div>
             </div>
 
@@ -109,4 +128,6 @@
     </div>
   </section>
   <!-- End Contact Area -->
+    
+
 </div>

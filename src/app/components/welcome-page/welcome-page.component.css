@@ -50,16 +50,17 @@ p{
     font-size: 14px;
     line-height: 1.6em;
     margin: 0;
+    text-align: left;
 }
 a:hover { text-decoration: none; }
 
 /* Start Main Menu */
 header {
-    /*background-image: url("../img/bg-1.jpg");
+    /*background-image: url("../img/bg_1.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;*/
-    /*padding: 235px 0;*/
+    padding: 235px 0;
     /*margin-bottom: 60px;*/
     /*background-attachment: fixed;*/
 }
@@ -219,20 +220,26 @@ div#service-area-main {
 /* Start Testimornial CSS */
 #testimornial-area{
     margin: 30px 0;
+       
 }
+
+
 h2 {
-    color: #666666;
+    color: white;
 }
 .testimonial-content {
-    background-color: #f2f2f2;
-    height: 450px;
+    background-color: rgba(0,0,0,.5);
+    height: 383px;
     max-width: 260px;
+    color: greenyellow;
     margin: 0 auto 30px;
 }
 .testimonial-content h4{
-    padding: 15px;
-    color: #6d6d6d;
-    letter-spacing: 0.2em;
+ 
+    padding-left: 5px;
+    /* color: #6d6d6d; */
+    /* letter-spacing: 0.2em; */
+    padding-right: 9px;
 
 }
 .testimonial-content  p {
@@ -302,6 +309,16 @@ input {
     border-radius:10px;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
+}
+
+button{
+    
+    background-color: Transparent;
+    color: #fff;
+    font-size: 20px;
+    padding: 15px 25px;
+    text-decoration: none;
+    text-transform: capitalize
 }
 /* End Contact CSS */
 
@@ -398,8 +415,8 @@ input {
 /*************navigation******************/
 
 .navbar-inverse {
-    background-color: #383E4C;
-    border-color: #383E4C;
+    background-color: #090909;
+    border-color: #090909;
 }
 .navbar-nav>li {
     display: inline-block;

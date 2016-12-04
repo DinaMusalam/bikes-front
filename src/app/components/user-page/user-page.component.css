@@ -23,7 +23,7 @@
 .user-rank{
     text-align: center;
     padding: 10px;
-    background-color: #00BB44;
+    background-color: #090909;
     border-radius: 10px;
     box-shadow: 0 5px 10px #444;
     margin-top: 10px;
@@ -73,4 +73,61 @@
     color: orange;
     padding: 5px;
 
+}
+
+/*--------------------------------*/
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .map-osd {
+    position: static;
+    width: 100%;
+    }}
+
+/*    Tablet Layout: 768px. */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+   .map-osd {
+    position: static;
+    width: 100%;
+    }}
+@media only screen and (max-width: 1024px) {
+    .map-osd {
+    position: static;
+    width: 100%;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    .map-osd {
+    position: static;
+    width: 100%;
+    }
+}
+
+/*    Wide Mobile Layout: 480px. */
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    .map-osd {
+    position: static;
+    width: 100%;
+    }
+}
+
+@media only screen and (max-width: 520px) {
+    .col-xxs-12 {
+        width: 100%;
+    }
+     .map-osd {
+    position: static;
+    width: 100%;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    header { height: 50vh; }
+     .map-osd {
+    position: static;
+    width: 100%;
+    }
 }

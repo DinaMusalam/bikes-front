@@ -5,6 +5,7 @@ import {ConversionService} from "../../../services/conversion.service";
 import {JwtHelper,tokenNotExpired} from 'angular2-jwt';
 import {auth0ClientId, auth0Domain} from "../../lib/consts";
 declare var Auth0Lock:any;
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-welcome-page',
@@ -36,6 +37,18 @@ export class WelcomePageComponent implements OnInit {
     this.getGlobalStatistics();
     this.listenToAuthenticated();
 
+  }
+  
+  ngAfterViewInit(){
+  
+  console.log('my test div', $('#test'));
+  this.applyStyling();
+  
+  }
+  
+  applyStyling(){
+  
+  
   }
   getIsPrivateUser(){
     return this.isPrivate;
