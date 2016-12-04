@@ -1,0 +1,23 @@
+{
+  "name": "bikes-front",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "https://github.com/jayway/bikes-vs-cars-data.git"
+    }
+  ]
+}
