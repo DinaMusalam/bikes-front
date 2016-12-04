@@ -24,8 +24,6 @@ export class UserHomeComponent implements OnInit {
   constructor(private router:Router) { }
 
   ngOnInit() {
-    this.profile = JSON.parse(localStorage.getItem('profile'));
-    console.log('profile from user home page',this.profile);
   }
 
 

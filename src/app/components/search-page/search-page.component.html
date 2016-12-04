@@ -1,5 +1,5 @@
 <div class="search-page">
-
+ <div class="body-background"></div>
   <div class="row">
     <div class="col-md-3 side-panel">
       <div class="row">
@@ -42,21 +42,15 @@
       <div class="row">
         <button (click)="getData()" class="btn btn-success" >Submit</button>
       </div>
-      <div class="row">
+   <!--   <div class="row">
         <div class="btn-group">
           <button class="btn btn-warn" (click)="testMalmo()">Test Malmo</button>
           <button class="btn btn-warn" (click)="testStockholm()">Test Stockholm</button>
         </div>
-      </div>
+      </div> -->
     </div>
     <div class="col-md-9">
-      <div class="map-osd">
-        <div class="btn-group">
-          <button class="btn btn-default" (click)="selectMapStyle('street')">Street</button>
-          <button class="btn btn-default" (click)="selectMapStyle('dark')">Dark</button>
-        </div>
-      </div>
-      <div id="map"></div>
+      <app-map [tripsGeojson]="tripsGeojson" [mapCenter]="mapCenter" [mapZoom]="mapZoom"></app-map>
       <div class="data-container" *ngIf="reportData">
 
         <div class="btn-group" role="group">
@@ -83,8 +77,6 @@
         </div>
 
       </div>
-    </div>
-
   </div>
 </div>
 

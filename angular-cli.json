@@ -19,6 +19,7 @@
         "../node_modules/amcharts/dist/amcharts/plugins/export/export.css"
       ],
       "scripts": [
+        "../node_modules/jquery/dist/jquery.min.js",
         "../node_modules/jspdf/dist/jspdf.min.js",
         "../node_modules/jspdf-autotable/dist/jspdf.plugin.autotable.js",
         "../node_modules/amcharts/dist/amcharts/amcharts.js",
@@ -29,6 +30,7 @@
         "../node_modules/amcharts/dist/amcharts/plugins/export/libs/FileSaver.js/FileSaver.min.js",
         "../node_modules/amcharts/dist/amcharts/plugins/export/libs/pdfmake/pdfmake.min.js",
         "../node_modules/amcharts/dist/amcharts/plugins/export/libs/jszip/jszip.min.js"
+          
 
 
 

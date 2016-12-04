@@ -5,6 +5,7 @@ import {ConversionService} from "../../../services/conversion.service";
 import {JwtHelper,tokenNotExpired} from 'angular2-jwt';
 import {auth0ClientId, auth0Domain} from "../../lib/consts";
 declare var Auth0Lock:any;
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-welcome-page',
@@ -21,7 +22,7 @@ export class WelcomePageComponent implements OnInit {
     },
     usernameStyle: 'username'
   };
-  lock = new Auth0Lock(auth0ClientId,auth0Domain,this.authOptions);
+  //lock = new Auth0Lock(auth0ClientId,auth0Domain,this.authOptions);
   //jwtHelper = new JwtHelper();
   isPrivate;
 
@@ -37,31 +38,43 @@ export class WelcomePageComponent implements OnInit {
     this.listenToAuthenticated();
 
   }
+  
+  ngAfterViewInit(){
+  
+  console.log('my test div', $('#test'));
+  this.applyStyling();
+  
+  }
+  
+  applyStyling(){
+  
+  
+  }
   getIsPrivateUser(){
     return this.isPrivate;
   }
 
   private listenToAuthenticated(){
 
-    this.lock.on('authenticated',authresult=>{
-      this.lock.getProfile(authresult.idToken,(error,profile)=>{
-
-        if(error) throw new Error(error);
-        //store the auth results to local storage.
-        localStorage.setItem('profile',JSON.stringify(profile));
-        localStorage.setItem('id_token',JSON.stringify(authresult.idToken));
-
-        //console.log('profile',profile);
-
-        //redirect the user after auth
-        console.log('login as private',this.isPrivate);
-        if(this.getIsPrivateUser())
-          this.router.navigate(['user',profile.nickname,'profile']);
-        else this.router.navigate(['user',profile.nickname,'search']);
-
-
-      });
-    });
+    // this.lock.on('authenticated',authresult=>{
+    //   this.lock.getProfile(authresult.idToken,(error,profile)=>{
+    //
+    //     if(error) throw new Error(error);
+    //     //store the auth results to local storage.
+    //     localStorage.setItem('profile',JSON.stringify(profile));
+    //     localStorage.setItem('id_token',JSON.stringify(authresult.idToken));
+    //
+    //     //console.log('profile',profile);
+    //
+    //     //redirect the user after auth
+    //     console.log('login as private',this.isPrivate);
+    //     if(this.getIsPrivateUser())
+    //       this.router.navigate(['user',profile.nickname,'profile']);
+    //     else this.router.navigate(['user',profile.nickname,'search']);
+    //
+    //
+    //   });
+    // });
   }
 
   private getGlobalStatistics(){

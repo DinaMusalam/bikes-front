@@ -21,9 +21,9 @@ export class ConversionService {
     let earthCir:number = 40000; //unit in km
     let totalTravels = +  ((distance/1000)/earthCir).toFixed(1);
     if(totalTravels>1)
-      return totalTravels+' travels around the earth';
+      return totalTravels+' travels around the world';
     else
-      return totalTravels+' travel around the earth';
+      return totalTravels+' travel around the world';
 
   }
 
